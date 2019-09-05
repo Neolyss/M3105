@@ -1,15 +1,14 @@
 package exo1;
 
 public class FindGuitarTester {
-
-  public static void main(String[] args) {
+	
+private static Inventory inventory = new Inventory();
+	public static void main(String[] args) {
     // Set up Rick's guitar inventory
-    //TODO
-    //initializeInventory(             );
+    initializeInventory(inventory);
 
-    Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor", 
-                                      "electric", "Alder", "Alder");
-    //TODO Guitar guitar = ...........
+    Guitar whatErinLikes = new Guitar("", 0, "Fender", "Stratocastor", "electric", "Alder", "Alder");
+    Guitar guitar = inventory.search(whatErinLikes);
     if (guitar != null) {
       System.out.println("Erin, you might like this " +
         guitar.getBuilder() + " " + guitar.getModel() +  " " +
@@ -22,7 +21,7 @@ public class FindGuitarTester {
     }
   }
 
-  //TODO private static void initializeInventory(..............) {
+  private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, "Collings", "CJ", "acoustic",
                         "Indian Rosewood", "Sitka");
     inventory.addGuitar("V95693", 1499.95, "Fender", "Stratocastor", "electric",
