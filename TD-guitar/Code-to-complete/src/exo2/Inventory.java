@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -33,6 +32,9 @@ public class Inventory {
     return guitarFound;
   }
   
+  // This method has to find guitar which get the same properties than the guitar searched
+  // The properties are : type of back wood and top wood, guitar model, guitar type, 
+  // guitar builder.
   public List<Guitar> search(Guitar searchGuitar) {
 	  List<Guitar> guitarFounds = new ArrayList<>();
 	  

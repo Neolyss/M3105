@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.junit.*;
 
+import exo3.Builder;
+
 
 public class SearchTI {
 

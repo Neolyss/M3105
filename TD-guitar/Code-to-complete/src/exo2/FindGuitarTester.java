@@ -1,14 +1,14 @@
 package exo2;
 
-import java.util.Iterator;
 import java.util.List;
 
 import exo2.Guitar;
 
 public class FindGuitarTester {
 	
-	private static Inventory inventory = new Inventory();
-  public static void main(String[] args) {
+private static Inventory inventory = new Inventory();
+
+public static void main(String[] args) {
     // Set up Rick's guitar inventory
 	 initializeInventory(inventory);
 

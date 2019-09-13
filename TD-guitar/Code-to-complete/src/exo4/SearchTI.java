@@ -14,7 +14,6 @@ public class SearchTI {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception { 
 		inventory = new Inventory();
-	    FindGuitarTester.initializeInventory(inventory);
 	}
 
 	@Test
