@@ -1,5 +1,7 @@
 package exo4;
 
+import java.util.Objects;
+
 public class GuitarSpec {
 	
 	public static final int NO_PREF_NUM_STRINGS = -1;
@@ -46,9 +48,26 @@ public class GuitarSpec {
 	}
 
 	public boolean matches(GuitarSpec searchGuitarSpec) {
-		boolean answer = true;
+		boolean filterBack = true;
+		boolean filterTop = true;
+		boolean filterNumStrings = true;
+		boolean filterType = true;
+		boolean filterModel = true;
+		boolean filterBuilder = true;
 		
-		return answer;
+		filterBack = (!isFilter(searchGuitarSpec.getBackWood()) || Objects.equals(backWood, searchGuitarSpec.getBackWood()));
+		filterTop = (!isFilter(searchGuitarSpec.getTopWood()) || Objects.equals(topWood, searchGuitarSpec.getTopWood()));
+		filterType = (!isFilter(searchGuitarSpec.getType()) || Objects.equals(type, searchGuitarSpec.getType()));
+		filterModel = (!isFilter(searchGuitarSpec.getModel()) || Objects.equals(model, searchGuitarSpec.getModel()));
+		filterBuilder = (!isFilter(searchGuitarSpec.getBuilder()) || Objects.equals(builder, searchGuitarSpec.getBuilder()));
+		filterNumStrings = (!(Objects.nonNull(searchGuitarSpec.getNumStrings()) && NO_PREF_NUM_STRINGS != searchGuitarSpec.getNumStrings())
+				|| Objects.equals(numStrings, searchGuitarSpec.getNumStrings()));
+		
+		return filterBack && filterBuilder && filterModel && filterTop && filterType && filterNumStrings;
+	}
+	
+	private boolean isFilter(Object value) {
+		return Objects.nonNull(value) && !"".equals(value.toString());
 	}
 	
 }
