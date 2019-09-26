@@ -18,7 +18,7 @@ public class SearchTI {
 
 	@Test
 	public void testSpecificGuitar() {
-	    GuitarSpec whatCustomerWant = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, 6, Wood.ALDER, Wood.ALDER);
+	    GuitarSpec whatCustomerWant = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC,6, Wood.ALDER, Wood.ALDER);
 	    List matchingGuitars = inventory.search(whatCustomerWant);
 	    
 	    Assert.assertNotNull(matchingGuitars);
