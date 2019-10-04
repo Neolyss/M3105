@@ -1,9 +1,8 @@
 package dicegame;
 
-import java.io.IOException;
 import java.util.Scanner;
 
-public class KeyboardInput {
+public class KeyboardInput implements IKeyboardInput {
 
 	private Scanner reader = new Scanner(System.in);
 	
