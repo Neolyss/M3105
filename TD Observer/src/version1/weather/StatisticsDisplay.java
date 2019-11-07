@@ -1,19 +1,19 @@
 package version1.weather;
 
-import java.util.*;
-
-public class StatisticsDisplay .......... {
+public class StatisticsDisplay implements Display,Observer {
 	private float maxTemp = 0.0f;
 	private float minTemp = 200;
 	private float tempSum= 0.0f;
 	private int numReadings;
-	//TODO:
-
-	public StatisticsDisplay(.................) {
-		//TODO:
+	private Subject subject;
+	
+	public StatisticsDisplay(Subject subject) {
+		this.subject = subject;
+		this.subject.registerObserver(this);
 	}
 
-	public void ........(float temp, float humidity, float pressure) {
+	@Override
+	public void actualise(float temp, float humidity, float pressure) {
 		tempSum += temp;
 		numReadings++;
 
@@ -24,11 +24,12 @@ public class StatisticsDisplay .......... {
 		if (temp < minTemp) {
 			minTemp = temp;
 		}
-		//TODO:
+		display();
 	}
 
 	public void display() {
 		System.out.println("Avg/Max/Min temperature = " + (tempSum / numReadings)
 			+ "/" + maxTemp + "/" + minTemp);
 	}
+
 }

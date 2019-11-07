@@ -1,18 +1,20 @@
 package version1.weather;
 
-public class CurrentConditionsDisplay .........{
+public class CurrentConditionsDisplay implements Display,Observer {
 	private float temperature;
 	private float humidity;
-	//TODO:
+	private Subject subject;
 	
-	public CurrentConditionsDisplay(................) {
-		//TODO:
+	public CurrentConditionsDisplay(Subject subject) {
+		this.subject = subject;
+		this.subject.registerObserver(this);
 	}
 	
-	public void ...........(float temperature, float humidity, float pressure) {
+	@Override
+	public void actualise(float temperature, float humidity, float pressure) {
 		this.temperature = temperature;
 		this.humidity = humidity;
-		//TODO:
+		display();
 	}
 	
 	public void display() {

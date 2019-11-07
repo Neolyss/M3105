@@ -1,20 +1,20 @@
 package version1.weather;
 
-import java.util.*;
-
-public class ForecastDisplay .... {
+public class ForecastDisplay implements Display,Observer {
 	private float currentPressure = 29.92f;  
 	private float lastPressure;
-	//TODO:
+	private Subject subject;
 
-	public ForecastDisplay(..............) {
-		//TODO:
+	public ForecastDisplay(Subject subject) {
+		this.subject = subject;
+		this.subject.registerObserver(this);
 	}
 
-	public void ............(float temp, float humidity, float pressure) {
+	@Override
+	public void actualise(float temp, float humidity, float pressure) {
         lastPressure = currentPressure;
 		currentPressure = pressure;
-		//TODO:
+		display();
 	}
 
 	public void display() {
@@ -27,4 +27,5 @@ public class ForecastDisplay .... {
 			System.out.println("Watch out for cooler, rainy weather");
 		}
 	}
+	
 }

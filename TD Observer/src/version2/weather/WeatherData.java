@@ -1,8 +1,8 @@
-package version1.weather;
+package version2.weather;
 
 import java.util.*;
 
-public class WeatherData implements Subject { 
+public class WeatherData extends Observable { 
 	private List<Observer> observers;
 	private float temperature;
 	private float humidity;
@@ -12,7 +12,8 @@ public class WeatherData implements Subject {
 		this.observers = new ArrayList<>();
 	}
 	
-	public void registerObserver(Observer o) {
+	@Override
+	public void addObserver(Observer o) {
 		observers.add(o);
 	}
 	
@@ -25,7 +26,7 @@ public class WeatherData implements Subject {
 	
 	public void notifyObservers() {
 		for(Observer aObserver : observers) {
-			aObserver.actualise(getTemperature(), getHumidity(), getPressure());
+			aObserver.update(this, null);
 		}
 	}
 	

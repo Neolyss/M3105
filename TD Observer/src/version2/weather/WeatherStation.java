@@ -1,4 +1,8 @@
-package version1.weather;
+package version2.weather;
+
+import version2.observer.CurrentConditionsDisplay;
+import version2.observer.ForecastDisplay;
+import version2.observer.StatisticsDisplay;
 
 public class WeatherStation {
 
